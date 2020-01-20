@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <servlet>
+        <servlet-name>Accedi</servlet-name>
+        <servlet-class>servlets.Accedi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Accedi</servlet-name>
+        <url-pattern>/Accedi</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Acquista</servlet-name>
+        <servlet-class>servlets.Acquista</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Acquista</servlet-name>
+        <url-pattern>/Acquista</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Blogmain</servlet-name>
+        <servlet-class>servlets.Blogmain</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Blogmain</servlet-name>
+        <url-pattern>/Blogmain</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Index</servlet-name>
+        <servlet-class>servlets.Index</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Index</servlet-name>
+        <url-pattern>/Index</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Premi</servlet-name>
+        <servlet-class>servlets.Premi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Premi</servlet-name>
+        <url-pattern>/Premi</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Registrati</servlet-name>
+        <servlet-class>servlets.Registrati</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Registrati</servlet-name>
+        <url-pattern>/Registrati</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Yourprofile</servlet-name>
+        <servlet-class>servlets.Yourprofile</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Yourprofile</servlet-name>
+        <url-pattern>/Yourprofile</url-pattern>
+    </servlet-mapping>
+
+</web-app>
