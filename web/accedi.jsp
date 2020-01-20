@@ -27,14 +27,17 @@
             <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
             <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
             <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color: rgb(254,209,54);">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a>
-            <div class="form-row">
+            <div class="row" style="margin-top: 55px;">
                 <div class="col">
-                    <div class="btn-group" role="group"></div>
-                    <div class="container text-center d-flex float-none justify-content-sm-center align-items-sm-center"><a class="social-link" href="#" style="margin: 0px 5px;"><i class="fa fa-facebook social-link-icon" style="color: rgb(37,28,19);"></i><div class="social-link-effect"></div></a><a class="social-link" href="#" style="margin: 0px 5px;"><i class="fa fa-twitter social-link-icon" style="color: rgb(37,28,19);"></i><div class="social-link-effect"></div></a>
-                        <a
-                            class="social-link" href="#" style="margin: 0px 5px;"><i class="fa fa-instagram social-link-icon" style="color: rgb(37,28,19);"></i>
+                    <div class="container text-center d-flex float-none justify-content-sm-center align-items-sm-center">
+                        <a class="social-link" href="#" style="margin: 0px 5px;">
+                            <i class="fa fa-facebook social-link-icon" style="color: rgb(37,28,19);"></i>
+                            <div class="social-link-effect"></div></a>
+                        <a class="social-link" href="#" style="margin: 0px 5px;">
+                            <i class="fa fa-google social-link-icon" style="color: rgb(37,28,19);"></i>
                             <div class="social-link-effect"></div>
-                            </a><a class="social-link" href="#" style="margin: 0px 5px;"><i class="fa fa-github social-link-icon" style="color: rgb(37,28,19);"></i><div class="social-link-effect"></div></a></div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </form>

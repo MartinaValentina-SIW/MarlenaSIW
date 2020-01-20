@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Marlena</title>
+    <script src="assets/js/registrati.js"></script>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
@@ -21,16 +22,14 @@
 </head>
 
 <body style="background-image: url(assets/img/maneskin2.jpg);"><nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="mainNav" style="color: rgb(7,3,2);background-color: rgb(37,28,19);">
-    <div class="container"><a class="navbar-brand" href="#page-top" style="font-family: 'Roboto Slab', serif;color: rgb(251,240,231);">Marlena</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse"
+    <div class="container"><a class="navbar-brand" href="index.jsp" style="font-family: 'Roboto Slab', serif;color: rgb(251,240,231);">Marlena</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="nav navbar-nav ml-auto text-uppercase">
-                <li role="presentation" class="nav-item"></li>
-                <li role="presentation" class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">ACCEDI</a></li>
-                <li role="presentation" class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">ISCRIVITI</a></li>
-                <li role="presentation" class="nav-item"></li>
-                <li role="presentation" class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">GRUPPO</a></li>
-                <li role="presentation" class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">COME FUNZIONA</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="accedi.jsp">ACCEDI</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="registrati.jsp">ISCRIVITI</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">GRUPPO</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">COME FUNZIONA</a></li>
             </ul>
         </div>
     </div>
@@ -38,12 +37,13 @@
     <div class="container" style="margin: 0px;margin-left: 0px;margin-right: 0px;padding: 25px;padding-top: 120px;">
         <div class="row" style="margin-left: 15px;margin-right: 15px;">
             <div class="col" style="padding: 0px;">
-                <form style="background-color: #ede4b6;padding: 30px;">
+                <form method="post" style="background-color: #ede4b6;padding: 30px;">
                     <div class="form-group"><strong>Crea un nuovo articolo</strong></div>
-                    <div class="form-group text-center"><input class="form-control" type="text" name="titolo" placeholder="Titolo"></div>
-                    <div class="form-group text-center"><input class="form-control" type="text" name="sottotitolo" placeholder="Sottotitolo"></div>
-                    <div class="form-group text-center"><textarea class="form-control" name="testo" placeholder="Testo" rows="8"></textarea></div>
-                    <div class="form-group text-center"><button class="btn btn-primary" type="button">Aggiungi Foto</button><button class="btn btn-primary" type="button">Aggiungi Video</button><button class="btn btn-primary" type="button">Conferma</button></div>
+                    <div class="form-group text-center"><input class="form-control" type="text" name="titolo" placeholder="Titolo" required></div>
+                    <div class="form-group text-center"><input class="form-control" type="text" name="sottotitolo" placeholder="Sottotitolo" required></div>
+                    <div class="form-group text-center"><textarea class="form-control" name="testo" placeholder="Testo" rows="8" required></textarea></div>
+                    <div class="form-group text-center"><input type="file" class="form-control-file" id="media"></div>
+                    <div class="form-group text-center"><button class="btn btn-primary" type="submit" id="nuovoArticolo" >Conferma</button></div>
                 </form>
             </div>
         </div>
