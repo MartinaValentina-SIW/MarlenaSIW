@@ -2,6 +2,7 @@ package dbmanagers;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import com.mysql.jdbc.Driver;
 
 public class MyConnection implements MyProvider{
 
@@ -10,8 +11,8 @@ public class MyConnection implements MyProvider{
     public static Connection getConnection()
     {
             try {
-                Class.forName("org.mysql.Driver");
-                con = DriverManager.getConnection(connUrl,username,psw);
+                Class.forName("com.mysql.jdbc.Driver");
+                MyConnection.con = DriverManager.getConnection(connUrl,username,psw);
 
             } catch (Exception e) {
                 e.printStackTrace();

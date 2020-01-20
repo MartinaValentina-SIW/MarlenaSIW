@@ -22,11 +22,10 @@
 
 <body>
     <div class="login-clean" style="background-image: url(assets/img/maneskin2.jpg);padding: 200px 0px;">
-        <form method="post" style="background-color: rgb(237,228,182);">
-            <h2 class="sr-only">Login Form</h2>
-            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+        <form method="post" action="Accedi" style="background-color: rgb(237,228,182);">
+            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email">${message}</div>
             <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color: rgb(254,209,54);">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a>
+            <div class="form-group"><button class="btn btn-primary btn-block" name="accedibutton" type="submit" style="background-color: rgb(254,209,54);" value="login">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a>
             <div class="row" style="margin-top: 55px;">
                 <div class="col">
                     <div class="container text-center d-flex float-none justify-content-sm-center align-items-sm-center">
@@ -39,6 +38,7 @@
                         </a>
                     </div>
                 </div>
+
             </div>
         </form>
     </div>
