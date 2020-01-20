@@ -25,7 +25,6 @@ public class Accedi extends HttpServlet {
             }
             else{
                 request.setAttribute("message", "Account non trovato oppure password sbagliata");
-                request.setAttribute("s", "<h1>Nutella</h1>");
             }
         }
 

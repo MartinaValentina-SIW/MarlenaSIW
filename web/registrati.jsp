@@ -24,7 +24,7 @@
 <body>
     <div class="register-photo" style="background-image: url(assets/img/maneskin2.jpg);padding: 110px 0px;">
         <div class="form-container">
-            <form method="post" style="background-color: rgb(237,228,182);padding: 50px 50px;">
+            <form method="post" action="Registrati" style="background-color: rgb(237,228,182);padding: 50px 50px;">
                 <h2 class="text-center"><strong>Create</strong> an account.</h2>
                 <div class="form-group">
                     <input class="form-control" type="email" name="email" placeholder="Email" required>
@@ -38,7 +38,9 @@
                 <div class="form-group">
                     <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox" required>Accetta termini e condizioni</label></div>
                 </div>
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color: rgb(37,28,19);">Sign Up</button></div><a class="already" href="accedi.jsp">Hai già un account? Accedi da qui</a>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color: rgb(37,28,19);" name="registratibutton" value="ok">Sign Up</button></div><a class="already" href="accedi.jsp">Hai già un account? Accedi da qui</a>
+                ${message}
+
                 <div class="row" style="margin-top: 55px;">
                     <div class="col">
                         <div class="container text-center d-flex float-none justify-content-sm-center align-items-sm-center">

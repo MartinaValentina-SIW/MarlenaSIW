@@ -74,5 +74,35 @@ public class UtenteDAO {
         return c;
     }
 
+    public int iscriviUtente(String username, String email, String password)
+    {
+        Utente c = new Utente();
+        try {
+            UtenteDAO.con = MyConnection.getConnection();
+            ps = UtenteDAO.con.prepareStatement("SELECT * FROM Utente AS c WHERE c.username=?");
 
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next())
+            {
+                return -1;
+            }
+
+            ps = UtenteDAO.con.prepareStatement("INSERT INTO Utente(username,email,password) VALUES (?,?,?)");
+
+            ps.setString(1,username);
+            ps.setString(2,email);
+            ps.setString(3,password);
+
+            ps.executeUpdate();
+
+            con.close();
+        }catch (SQLException | NullPointerException e)
+        {
+            e.printStackTrace();
+            return 0;
+        }
+        return 1;
+    }
 }
