@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Marlena</title>
+    <script src="assets/js/registrati.js"></script>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
@@ -36,12 +37,13 @@
     <div class="container" style="margin: 0px;margin-left: 0px;margin-right: 0px;padding: 25px;padding-top: 120px;">
         <div class="row" style="margin-left: 15px;margin-right: 15px;">
             <div class="col" style="padding: 0px;">
-                <form style="background-color: #ede4b6;padding: 30px;">
+                <form method="post" style="background-color: #ede4b6;padding: 30px;">
                     <div class="form-group"><strong>Crea un nuovo articolo</strong></div>
-                    <div class="form-group text-center"><input class="form-control" type="text" name="titolo" placeholder="Titolo"></div>
-                    <div class="form-group text-center"><input class="form-control" type="text" name="sottotitolo" placeholder="Sottotitolo"></div>
-                    <div class="form-group text-center"><textarea class="form-control" name="testo" placeholder="Testo" rows="8"></textarea></div>
-                    <div class="form-group text-center"><button class="btn btn-primary" type="button">Aggiungi Foto</button><button class="btn btn-primary" type="button">Aggiungi Video</button><button class="btn btn-primary" type="button">Conferma</button></div>
+                    <div class="form-group text-center"><input class="form-control" type="text" name="titolo" placeholder="Titolo" required></div>
+                    <div class="form-group text-center"><input class="form-control" type="text" name="sottotitolo" placeholder="Sottotitolo" required></div>
+                    <div class="form-group text-center"><textarea class="form-control" name="testo" placeholder="Testo" rows="8" required></textarea></div>
+                    <div class="form-group text-center"><input type="file" class="form-control-file" id="media"></div>
+                    <div class="form-group text-center"><button class="btn btn-primary" type="submit" id="nuovoArticolo" >Conferma</button></div>
                 </form>
             </div>
         </div>
