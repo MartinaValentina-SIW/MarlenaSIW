@@ -13,14 +13,18 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/Elegant-Registration-Form.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="assets/css/Profile-Picture-With-Badge-1.css">
     <link rel="stylesheet" href="assets/css/Profile-Picture-With-Badge.css">
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
-    <link rel="stylesheet" href="assets/css/Social-Icon--hover-effect-1.css">
     <link rel="stylesheet" href="assets/css/Social-Icon--hover-effect.css">
 </head>
 
 <body>
+    <%
+        String email=(String)session.getAttribute("email");
+        if(email!=null){
+            response.sendRedirect("blogmain.jsp");
+        }
+    %>
     <div class="login-clean" style="background-image: url(assets/img/maneskin2.jpg);padding: 200px 0px;">
         <form method="post" action="Accedi" style="background-color: rgb(237,228,182);">
             <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email">${message}</div>
@@ -42,19 +46,7 @@
             </div>
         </form>
     </div>
-    <nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="mainNav" style="color: rgb(7,3,2);background-color: rgb(37,28,19);">
-        <div class="container"><a class="navbar-brand" href="index.jsp" style="font-family: 'Roboto Slab', serif;color: rgb(251,240,231);">Marlena</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="nav navbar-nav ml-auto text-uppercase">
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="accedi.jsp">ACCEDI</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="registrati.jsp">ISCRIVITI</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">GRUPPO</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">COME FUNZIONA</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <jsp:include page="navbar.jsp"/>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>

@@ -1,8 +1,8 @@
-<%@ page import="dbmanagers.ArticoloDAO" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="dbmanagers.ArticoloDAO" %>
 <%@ page import="dbmanagers.Articolo" %>
-<%@ page import="dbmanagers.Commento" %>
 <%@ page import="dbmanagers.CommentoDAO" %>
+<%@ page import="dbmanagers.Commento" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 
@@ -26,19 +26,14 @@
     <link rel="stylesheet" href="assets/css/Social-Icon--hover-effect.css">
 </head>
 
-<body style="background-image: url(assets/img/maneskin2.jpg);"><nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="mainNav" style="color: rgb(7,3,2);background-color: rgb(37,28,19);">
-    <div class="container"><a class="navbar-brand" href="index.jsp" style="font-family: 'Roboto Slab', serif;color: rgb(251,240,231);">Marlena</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="nav navbar-nav ml-auto text-uppercase">
-                <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="accedi.jsp">ACCEDI</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="registrati.jsp">ISCRIVITI</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">GRUPPO</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">COME FUNZIONA</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<body style="background-image: url(assets/img/maneskin2.jpg);">
+<%
+    String email=(String)session.getAttribute("email");
+    if(email==null){
+        response.sendRedirect("accedi.jsp");
+    }
+%>
+<jsp:include page="navbar.jsp"/>
     <div class="container" style="margin: 0px;margin-left: 0px;margin-right: 0px;padding: 25px;padding-top: 120px;">
         <div class="row" style="margin-left: 15px;margin-right: 15px;">
             <div class="col" style="padding: 0px;">
@@ -78,7 +73,7 @@
                             "                                <p style=\"font-size: 19px;margin-top: 15px;margin-bottom: 0px;\">Commenti</p>\n" +
                             "                            </div>\n" +
                             "                        </div>\n");
-
+                    if (commentiArticolo!=null)
                     for(Commento c:commentiArticolo)
                     {
                         out.print("                        <div class=\"row\">\n" +
@@ -108,51 +103,6 @@
             );
         }
     %>
-
-
-<%--        <div class="row" id="articolo2" style="background-color: rgb(237,228,182);margin: 30px 0px 0px 30px;padding: 20px;margin-right: 15px;margin-left: 15px;">--%>
-<%--            <div class="col -2 col-md-2" style="background-color: rgb(237,228,182);"><img><em>Username</em></div>--%>
-<%--            <div class="col -12 col-md-10">--%>
-<%--                <div class="card">--%>
-<%--                    <div class="card-body" style="background-color: rgb(237,228,182);">--%>
-<%--                        <h4 class="card-title">Titolo Articolo</h4>--%>
-<%--                        <h6 class="text-muted card-subtitle mb-2">Subtitle</h6>--%>
-<%--                        <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><img>--%>
-<%--                        <div class="row">--%>
-<%--                            <div class="col text-center"><button class="btn btn-primary" type="button">Mi Piace - 0</button></div>--%>
-<%--                        </div>--%>
-<%--                        <div></div>--%>
-<%--                        <div class="row">--%>
-<%--                            <div class="col" style="padding: 0px;">--%>
-<%--                                <p style="font-size: 19px;margin-top: 15px;margin-bottom: 0px;">Commenti</p>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="row">--%>
-<%--                            <div class="col -2 col-md-2" style="background-color: rgb(237,228,182);"><img style="width: 30px;height: 30px;"><em style="font-size: 13px;">Username</em></div>--%>
-<%--                            <div class="col">--%>
-<%--                                <p style="font-size: 15px;">Paragraph</p>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="row">--%>
-<%--                            <div class="col -2 col-md-2" style="background-color: rgb(237,228,182);"><img style="width: 30px;height: 30px;"><em style="font-size: 13px;">Username</em></div>--%>
-<%--                            <div class="col">--%>
-<%--                                <p style="font-size: 15px;">Paragraph</p>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="row">--%>
-<%--                            <div class="col">--%>
-<%--                                <p>Nuovo Commento</p>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <div class="row">--%>
-<%--                            <div class="col text-center d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex justify-content-center align-items-center justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center -4 col-md-8"--%>
-<%--                                style="padding: 0px;padding-right: 0px;padding-left: 0px;padding-bottom: 0px;padding-top: 0px;"><textarea class="flex-fill" style="margin: 0px;margin-right: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;"></textarea></div>--%>
-<%--                            <div class="col text-center" style="padding: 0px;padding-top: 5px;"><button class="btn btn-primary" type="button">Commenta</button></div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
 
     </div>
     <script src="assets/js/jquery.min.js"></script>

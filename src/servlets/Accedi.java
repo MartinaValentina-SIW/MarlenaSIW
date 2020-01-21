@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "Accedi")
@@ -18,10 +19,14 @@ public class Accedi extends HttpServlet {
         String password = request.getParameter("password");
         String loginButton = request.getParameter("accedibutton");
 
+
+
         Utente c = cdb.getUtente(email,password);
         if(loginButton.equals("login")){
             if(c.getUsername() != null){
-                request.setAttribute("message", "Account trovato");
+                HttpSession session = request.getSession();
+                session.setAttribute("email",email);
+                request.getRequestDispatcher("blogmain.jsp").forward(request, response);
             }
             else{
                 request.setAttribute("message", "Account non trovato oppure password sbagliata");

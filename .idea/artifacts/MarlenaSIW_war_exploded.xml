@@ -13,7 +13,7 @@
           <element id="library" level="project" name="javax.mail" />
         </element>
       </element>
-      <element id="library" level="project" name="mysql-connector-java-8.0.19" />
+      <element id="library" level="project" name="mysql-connector-java-8.0.191" />
     </root>
   </artifact>
 </component>

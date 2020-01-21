@@ -20,19 +20,14 @@
     <link rel="stylesheet" href="assets/css/Social-Icon--hover-effect.css">
 </head>
 
-<body style="background-image: url(assets/img/maneskin2.jpg);"><nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="mainNav" style="color: rgb(7,3,2);background-color: rgb(37,28,19);">
-    <div class="container"><a class="navbar-brand" href="index.jsp" style="font-family: 'Roboto Slab', serif;color: rgb(251,240,231);">Marlena</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="nav navbar-nav ml-auto text-uppercase">
-                <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="accedi.jsp">ACCEDI</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="registrati.jsp">ISCRIVITI</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">GRUPPO</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">COME FUNZIONA</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<body style="background-image: url(assets/img/maneskin2.jpg);">
+<%
+    String email=(String)session.getAttribute("email");
+    if(email==null){
+        response.sendRedirect("accedi.jsp");
+    }
+%>
+<jsp:include page="navbar.jsp"/>
     <div class="container" style="margin: 0px;margin-left: 0px;margin-right: 0px;padding: 25px;padding-top: 120px;">
         <div class="row" style="margin-left: 15px;margin-right: 15px;background-color: #ede4b6;">
             <div class="col">

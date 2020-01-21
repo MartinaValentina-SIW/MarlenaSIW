@@ -10,35 +10,27 @@ public class MiPiaceDAO {
     static Connection con;
     static PreparedStatement ps;
 
-    public ArrayList<ArrayList<MiPiace>> getMiPiace()
+    public int getMiPiace(int articolo)
     {
-        ArrayList<ArrayList<MiPiace>> mipiace = null;
+        int n = 0;
         try
         {
             con = MyConnection.getConnection();
-            ps = con.prepareStatement("SELECT * FROM MiPiace");
+            ps = con.prepareStatement("SELECT COUNT(*) FROM MiPiace AS mp WHERE mp.articolo = ?");
+
+            ps.setString(1,""+articolo);
 
             ResultSet rs = ps.executeQuery();
 
-            while (rs.next())
-            {
-                if(mipiace == null)
-                    mipiace = new ArrayList<ArrayList<MiPiace>>();
+            if(rs.next())
+                n = rs.getInt(1);
 
-                if(mipiace.size() < rs.getInt(1))
-                    for(int i = mipiace.size(); i<=rs.getInt(1); i++)
-                    {
-                        mipiace.add(new ArrayList<MiPiace>());
-                    }
-
-                mipiace.get(rs.getInt(1)).add(new MiPiace(rs.getInt(1),rs.getString(1)));
-            }
             con.close();
         }
         catch (SQLException | NullPointerException e)
         {
             e.printStackTrace();
         }
-        return mipiace;
+        return n;
     }
 }

@@ -2,6 +2,7 @@ package servlets;
 
 import dbmanagers.JavaEmail;
 
+
 import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +16,7 @@ public class Index extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String message = null;
         String status = null;
-        if (request.getParameter("submit") != null) {
+        if (request.getParameter("contattaci") != null) {
             JavaEmail javaEmail = new JavaEmail();
             javaEmail.setMailServerProperties();
             String emailSubject = "Contact Form using Java JSP GMail";
@@ -37,19 +38,24 @@ public class Index extends HttpServlet {
                         + "<br>";
             }
             try {
-                javaEmail.createEmailMessage(emailSubject, emailBody);
+                javaEmail.createEmailMessage(emailSubject, emailBody, request.getParameter("email"));
             } catch (MessagingException e) {
                 e.printStackTrace();
             }
             try {
                 javaEmail.sendEmail();
+                System.out.println("success");
                 status = "success";
                 message = "Email sent Successfully!";
             } catch (MessagingException me) {
+                System.out.println("error");
+                me.printStackTrace();
                 status = "error";
                 message = "Error in Sending Email!";
             }
         }
+
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
