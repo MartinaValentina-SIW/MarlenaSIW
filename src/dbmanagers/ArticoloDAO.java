@@ -4,10 +4,35 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ArticoloDAO {
     static Connection con;
     static PreparedStatement ps;
+
+    public ArrayList<Articolo> getAllArticoli()
+    {
+        ArrayList<Articolo> articoli = new ArrayList<Articolo>();
+
+        try {
+            ArticoloDAO.con = MyConnection.getConnection();
+            ps = ArticoloDAO.con.prepareStatement("SELECT * FROM Articolo");
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next())
+            {
+                articoli.add(new Articolo(rs.getInt(1),rs.getString(3),rs.getString(4),
+                        rs.getString(5),rs.getInt(8),rs.getString(2)));
+            }
+            con.close();
+        }catch (SQLException | NullPointerException e)
+        {
+            e.printStackTrace();
+        }
+
+        return articoli;
+    }
 
     public int aggiungiArticolo(int id, String autore, String titolo, String sottotitolo, String testo)
     {

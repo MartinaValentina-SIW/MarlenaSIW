@@ -8,6 +8,15 @@ public class Articolo {
     int numMiPiace;
     String autore;
 
+    public Articolo(int id, String titolo, String sottotitolo, String testo, int numMiPiace, String autore) {
+        this.id = id;
+        this.titolo = titolo;
+        this.sottotitolo = sottotitolo;
+        this.testo = testo;
+        this.numMiPiace = numMiPiace;
+        this.autore = autore;
+    }
+
     @Override
     public String toString() {
         return "Articolo{" +
