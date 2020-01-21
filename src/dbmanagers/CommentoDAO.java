@@ -25,13 +25,13 @@ public class CommentoDAO {
                 if(commenti == null)
                     commenti = new ArrayList<ArrayList<Commento>>();
 
-                if(commenti.size() < rs.getInt(1))
-                    for(int i = commenti.size(); i<=rs.getInt(1); i++)
+                if(commenti.size() < rs.getInt(2))
+                    for(int i = commenti.size(); i<=rs.getInt(2); i++)
                     {
                         commenti.add(new ArrayList<Commento>());
                     }
 
-                commenti.get(rs.getInt(1)).add(new Commento(rs.getInt(1),rs.getString(2),rs.getString(3)));
+                commenti.get(rs.getInt(2)).add(new Commento(rs.getInt(2),rs.getString(3),rs.getString(4)));
             }
             con.close();
         }
