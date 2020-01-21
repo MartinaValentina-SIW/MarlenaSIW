@@ -51,7 +51,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <form id="contactForm" name="contactForm" novalidate="novalidate">
+                    <form id="contactForm" name="contactForm" novalidate="novalidate" action="Index" method="post">
                         <div class="form-row">
                             <div class="col col-md-6">
                                 <div class="form-group"><input class="form-control" type="text" id="name" placeholder="Your Name *" required=""><small class="form-text text-danger flex-grow-1 help-block lead"></small></div>
