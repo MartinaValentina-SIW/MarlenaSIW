@@ -10,6 +10,8 @@ public class MyConnection implements MyProvider{
 
     public static Connection getConnection()
     {
+        // so che la connessione andrebbe sempre chiusa, ma il db va veramente lento se apro e chiudo
+        if(con == null)
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 MyConnection.con = DriverManager.getConnection(connUrl,username,psw);

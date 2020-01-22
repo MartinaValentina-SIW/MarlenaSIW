@@ -1,3 +1,4 @@
+<%@ page import="dbmanagers.Utente" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 
@@ -29,7 +30,15 @@
     		<div class="profile-header-img">
                 <img src="assets/img/photo.jpg" />
                 <div class="rank-label-container">
-                    <span class="label label-default rank-label">0 mi piace</span>
+                    <span class="label label-default rank-label">
+                        <%
+                            Utente u = null;
+                            if(session.getAttribute("utente") instanceof Utente)
+                                u = (Utente) session.getAttribute("utente");
+
+                            out.print(u.getTotMiPiace());
+                        %>
+                            mi piace</span>
                 </div>
             </div>
         </div> 

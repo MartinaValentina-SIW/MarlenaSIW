@@ -35,7 +35,6 @@ public class UtenteDAO {
             System.out.println(c.toString());
 
 
-            con.close();
         }catch (SQLException | NullPointerException e)
         {
             e.printStackTrace();
@@ -66,7 +65,6 @@ public class UtenteDAO {
             System.out.println(c.toString());
             System.out.println(email + " " + password);
 
-            con.close();
         }catch (SQLException | NullPointerException e)
         {
             e.printStackTrace();
@@ -97,7 +95,6 @@ public class UtenteDAO {
 
             ps.executeUpdate();
 
-            con.close();
         }catch (SQLException | NullPointerException e)
         {
             e.printStackTrace();

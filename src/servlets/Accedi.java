@@ -26,6 +26,7 @@ public class Accedi extends HttpServlet {
             if(c.getUsername() != null){
                 HttpSession session = request.getSession();
                 session.setAttribute("email",email);
+                session.setAttribute("utente", c);
                 request.getRequestDispatcher("blogmain.jsp").forward(request, response);
             }
             else{

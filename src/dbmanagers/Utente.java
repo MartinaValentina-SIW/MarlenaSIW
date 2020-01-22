@@ -4,7 +4,7 @@ public class Utente {
     String username;
     String email;
     String password;
-    int totMiPiace;
+    int totMiPiace = 0;
     String tipo;
 
     @Override

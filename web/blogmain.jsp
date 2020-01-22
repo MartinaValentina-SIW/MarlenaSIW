@@ -3,6 +3,7 @@
 <%@ page import="dbmanagers.Articolo" %>
 <%@ page import="dbmanagers.CommentoDAO" %>
 <%@ page import="dbmanagers.Commento" %>
+<%@ page import="java.util.Collections" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 
@@ -40,7 +41,7 @@
                 <form method="post" action="Blogmain" style="background-color: #ede4b6;padding: 30px;">
                     <div class="form-group"><strong>Crea un nuovo articolo</strong></div>
                     <div class="form-group text-center"><input class="form-control" type="text" name="titolo" placeholder="Titolo" required></div>
-                    <div class="form-group text-center"><input class="form-control" type="text" name="sottotitolo" placeholder="Sottotitolo" required></div>
+                    <div class="form-group text-center"><input class="form-control" type="text" name="sottotitolo" placeholder="Sottotitolo"></div>
                     <div class="form-group text-center"><textarea class="form-control" name="testo" placeholder="Testo" rows="8" required></textarea></div>
                     <div class="form-group text-center"><input type="file" class="form-control-file" id="media"></div>
                     <div class="form-group text-center"><button class="btn btn-primary" type="submit" id="nuovoArticolo" name="blogButton" value="nuovoArticolo">Conferma</button></div>
@@ -49,11 +50,12 @@
         </div>
     <%
         ArrayList<Articolo> articoli = new ArticoloDAO().getAllArticoli();
+        Collections.reverse(articoli);
         ArrayList<ArrayList<Commento>> commenti = new CommentoDAO().getCommenti();
         for(Articolo a: articoli)
         {
             ArrayList<Commento> commentiArticolo = null;
-            if (commenti != null && commenti.get(a.getId()) != null)
+            if (commenti != null && commenti.size() > a.getId())
                 commentiArticolo = commenti.get(a.getId());
             out.print(
                     "<div class=\"row\" id=\"articolo" + a.getId() + "\" style=\"background-color: rgb(237,228,182);margin: 30px 0px 0px 30px;padding: 20px;margin-right: 15px;margin-left: 15px;\">\n" +
@@ -65,7 +67,7 @@
                             "                        <h6 class=\"text-muted card-subtitle mb-2\">" + a.getSottotitolo() + "</h6>\n" +
                             "                        <p class=\"card-text\">"+ a.getTesto() +"</p><img>\n" +
                             "                        <div class=\"row\">\n" +
-                            "                            <div class=\"col text-center\"><form method=\"post\" action=\"Blogmain\"><button class=\"btn btn-primary\" type=\"submit\" name=\"blogButton\" value=\"miPiace" + a.getId() + "-" + a.getAutore() + "\">Mi Piace - " + a.getNumMiPiace() + "</button></form></div>\n" +
+                            "                            <div class=\"col text-center\"><form method=\"post\" action=\"Blogmain\"><button class=\"btn btn-primary\" type=\"submit\" name=\"blogButton\" value=\"miPiace-" + a.getId() + "-" + a.getAutore() + "\">Mi Piace - " + a.getNumMiPiace() + "</button></form></div>\n" +
                             "                        </div>\n" +
                             "                        <div></div>\n" +
                             "                        <div class=\"row\">\n" +
@@ -93,8 +95,8 @@
                             "                        </div>\n" +
                             "                        <div class=\"row\">\n" +
                             "                            <div class=\"col text-center d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex justify-content-center align-items-center justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center -4 col-md-8\"\n" +
-                            "                                style=\"padding: 0px;padding-right: 0px;padding-left: 0px;padding-bottom: 0px;padding-top: 0px;\"><form method=\"post\" action=\"Blogmain\"><textarea class=\"flex-fill\" style=\"margin: 0px;margin-right: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;\"></textarea></div>\n" +
-                            "                            <div class=\"col text-center\" style=\"padding: 0px;padding-top: 5px;\"><button class=\"btn btn-primary\" type=\"submit\" name=\"blogButton\" value=\"nuovoCommento" + a.getId() + "-" + a.getAutore() + " \">Commenta</button></div></form>\n" +
+                            "                                style=\"padding: 0px;padding-right: 0px;padding-left: 0px;padding-bottom: 0px;padding-top: 0px;\"><form method=\"post\" action=\"Blogmain\"><textarea name=\"nuovoCommentoText\" class=\"flex-fill\" style=\"margin: 0px;margin-right: 0px;padding: 0px;padding-top: 0px;padding-right: 0px;\"></textarea></div>\n" +
+                            "                            <div class=\"col text-center\" style=\"padding: 0px;padding-top: 5px;\"><button class=\"btn btn-primary\" type=\"submit\" name=\"blogButton\" value=\"nuovoCommento-" + a.getId() + "-" + a.getAutore() + " \">Commenta</button></div></form>\n" +
                             "                        </div>\n" +
                             "                    </div>\n" +
                             "                </div>\n" +

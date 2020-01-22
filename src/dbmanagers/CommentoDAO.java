@@ -10,6 +10,25 @@ public class CommentoDAO {
     static Connection con;
     static PreparedStatement ps;
 
+    public void inserisciCommento(String articolo, String utente, String testo)
+    {
+        try {
+            ArticoloDAO.con = MyConnection.getConnection();
+
+            ps = ArticoloDAO.con.prepareStatement("INSERT INTO Commento(articolo,utente,testo) VALUES (?,?,?)");
+
+            ps.setString(1,articolo);
+            ps.setString(2,utente);
+            ps.setString(3,testo);
+
+            ps.executeUpdate();
+
+        }catch (SQLException | NullPointerException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
     public ArrayList<ArrayList<Commento>> getCommenti()
     {
         ArrayList<ArrayList<Commento>> commenti = null;
@@ -33,7 +52,6 @@ public class CommentoDAO {
 
                 commenti.get(rs.getInt(2)).add(new Commento(rs.getInt(2),rs.getString(3),rs.getString(4)));
             }
-            con.close();
         }
         catch (SQLException | NullPointerException e)
         {
