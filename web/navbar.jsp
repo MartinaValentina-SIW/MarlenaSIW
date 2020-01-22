@@ -22,10 +22,11 @@
                         out.print("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link js-scroll-trigger\" href=\"accedi.jsp\">ACCEDI</a></li>\n" +
                                 "                    <li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link js-scroll-trigger\" href=\"registrati.jsp\">ISCRIVITI</a></li>\n");
                     else
-                        out.print("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link js-scroll-trigger\" href=\"yourprofile.jsp\">PROFILO</a></li>\n" +
+                        out.print("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link js-scroll-trigger\" href=\"blogmain.jsp\">BLOG</a></li>" +
+                                "<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link js-scroll-trigger\" href=\"yourprofile.jsp\">PROFILO</a></li>\n" +
                                 "<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link js-scroll-trigger\" href=\"acquista.jsp\">ACQUISTA</a></li>" +
-                                "<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link js-scroll-trigger\" href=\"logout.jsp\">LOGOUT</a></li>" +
-                                "<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link js-scroll-trigger\" href=\"premi.jsp\">PREMI</a></li>");
+                                "<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link js-scroll-trigger\" href=\"premi.jsp\">PREMI</a></li>" +
+                                "<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link js-scroll-trigger\" href=\"logout.jsp\">LOGOUT</a></li>");
                 %>
 
                 <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">GRUPPO</a></li>

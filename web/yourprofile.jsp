@@ -1,4 +1,5 @@
 <%@ page import="dbmanagers.Utente" %>
+<%@ page import="dbmanagers.UtenteDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 
@@ -14,10 +15,8 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/Elegant-Registration-Form.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="assets/css/Profile-Picture-With-Badge-1.css">
     <link rel="stylesheet" href="assets/css/Profile-Picture-With-Badge.css">
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
-    <link rel="stylesheet" href="assets/css/Social-Icon--hover-effect-1.css">
     <link rel="stylesheet" href="assets/css/Social-Icon--hover-effect.css">
 </head>
 
@@ -32,11 +31,13 @@
                 <div class="rank-label-container">
                     <span class="label label-default rank-label">
                         <%
-                            Utente u = null;
-                            if(session.getAttribute("utente") instanceof Utente)
-                                u = (Utente) session.getAttribute("utente");
-
-                            out.print(u.getTotMiPiace());
+                            String email = "0";
+                            if(session.getAttribute("email") instanceof String)
+                            {
+                                email = (String)session.getAttribute("email");
+                            }
+                            int mipiace = new UtenteDAO().getUtente(email).getTotMiPiace();
+                            out.print(mipiace);
                         %>
                             mi piace</span>
                 </div>
