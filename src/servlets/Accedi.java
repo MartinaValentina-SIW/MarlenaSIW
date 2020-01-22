@@ -19,10 +19,11 @@ public class Accedi extends HttpServlet {
         String password = request.getParameter("password");
         String loginButton = request.getParameter("accedibutton");
 
+        System.out.println("Siamo in Accedi email:" + email + ". buttonvalue: " + loginButton);
 
 
-        Utente c = cdb.getUtente(email,password);
         if(loginButton.equals("login")){
+            Utente c = cdb.getUtente(email,password);
             if(c.getUsername() != null){
                 HttpSession session = request.getSession();
                 session.setAttribute("email",email);
@@ -33,9 +34,16 @@ public class Accedi extends HttpServlet {
                 request.setAttribute("message", "Account non trovato oppure password sbagliata");
             }
         }
-
-        cdb.printAll();
-
+        else if(loginButton.equals("google") || loginButton.equals("facebook")) {
+            Utente c = cdb.getUtente(email);
+            if (c != null && email != null) {
+                HttpSession session = request.getSession();
+                session.setAttribute("email", email);
+                session.setAttribute("utente", c);
+                request.getRequestDispatcher("blogmain.jsp").forward(request, response);
+            }
+            //cdb.printAll();
+        }
         request.getRequestDispatcher("accedi.jsp").forward(request, response);
     }
 
