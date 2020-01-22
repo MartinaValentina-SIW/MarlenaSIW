@@ -60,7 +60,6 @@
                 {
                     if(fields && !fields.error) {
                         var email = fields.email;
-                        alert(fields.email);
                         $('#emailForm').val(email);
                         $('#passForm').val('no');
 

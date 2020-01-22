@@ -38,21 +38,13 @@ public class Blogmain extends HttpServlet {
 
             ArticoloDAO adao = new ArticoloDAO();
             adao.aggiungiArticolo(utente.getUsername(),titolo,sottotitolo,testo);
-            System.out.println("NUOVO ARTICOLO");
+
         }
         else if(Pattern.matches("miPiace.+", button))
         {
             Pattern pattern = Pattern.compile("\\-");
             String[] dati = pattern.split(button);
-
-
-
-            if(new MiPiaceDAO().insertOrDeleteMiPiace(dati[1],utente.getUsername()))
-                System.out.println("Aggiunto mi piace");
-            else
-                System.out.println("rimosso mi piace");
-
-            System.out.println("MI PIACE");
+            new MiPiaceDAO().insertOrDeleteMiPiace(dati[1],utente.getUsername());
         }
         else if(Pattern.matches("nuovoCommento.+", button))
         {
@@ -62,9 +54,7 @@ public class Blogmain extends HttpServlet {
             String testo = request.getParameter("nuovoCommentoText");
 
             new CommentoDAO().inserisciCommento(dati[1],utente.getUsername(),testo);
-            System.out.println("NUOVO COMMENTO");
         }
-        System.out.println("VOLEVI: " + button);
         request.getRequestDispatcher("blogmain.jsp").forward(request, response);
     }
 

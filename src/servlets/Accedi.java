@@ -19,9 +19,6 @@ public class Accedi extends HttpServlet {
         String password = request.getParameter("password");
         String loginButton = request.getParameter("accedibutton");
 
-        System.out.println("Siamo in Accedi email:" + email + ". buttonvalue: " + loginButton);
-
-
         if(loginButton.equals("login")){
             Utente c = cdb.getUtente(email,password);
             if(c.getUsername() != null){

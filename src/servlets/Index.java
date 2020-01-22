@@ -44,11 +44,9 @@ public class Index extends HttpServlet {
             }
             try {
                 javaEmail.sendEmail();
-                System.out.println("success");
                 status = "success";
                 message = "Email sent Successfully!";
             } catch (MessagingException me) {
-                System.out.println("error");
                 me.printStackTrace();
                 status = "error";
                 message = "Error in Sending Email!";

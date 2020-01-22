@@ -45,13 +45,18 @@
         </div> 
 
                 <div class="form-row">
-                    <div class="col"><button class="btn btn-primary" type="button" style="margin: 0px;background-color: rgb(254,209,54);">Cambia Immagine</button></div>
+                    <div class="col"><button class="btn btn-primary" type="button" style="margin: 0px;background-color: rgb(254,209,54);" disabled>Cambia Immagine</button></div>
                     <div class="col"><button class="btn btn-primary" type="button" style="margin: 0px;background-color: rgb(254,209,54);">Premi</button></div>
                 </div>
             </div>
-            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-            <div class="form-group"><input class="form-control" type="email" name="username" placeholder="Username"></div>
-            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div><a class="forgot" href="#">Vuoi cambiare password?</a></form>
+            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email" value="<% out.print(session.getAttribute("email")); %>"></div>
+            <div class="form-group"><input class="form-control" type="email" name="username" placeholder="Username" value="
+                    <%
+                        if(session.getAttribute("utente") instanceof Utente)
+                            out.print(((Utente) session.getAttribute("utente")).getUsername());
+                    %>
+                "></div>
+           <a class="forgot" href="#">Vuoi cambiare password?</a></form>
     </div>
     <jsp:include page="navbar.jsp"/>
     <script src="assets/js/jquery.min.js"></script>
