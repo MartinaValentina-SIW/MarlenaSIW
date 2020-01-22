@@ -23,11 +23,69 @@
 </head>
 
 <body>
-    <jsp:include page="navbar.jsp"/>
-    <script src="assets/js/accedi.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <script src="assets/js/agency.js"></script>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '483790008950410',
+                cookie     : true,
+                xfbml      : true,
+                version    : 'v5.0'
+            });
+
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+
+        };
+
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            var email = profile.getEmail();
+
+            $('#emailForm').val(email);
+            $('#passForm').val("no");
+
+            $('#accedibutton').val("google");
+            $('#accedibutton').click();
+
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut();
+        }
+
+        function statusChangeCallback(response) {
+
+            if(response.status === 'connected')
+            {
+                FB.api('/me?fields=name,email', function(fields)
+                {
+                    if(fields && !fields.error) {
+                        var email = fields.email;
+                        alert(fields.email);
+                        $('#emailForm').val(email);
+                        $('#passForm').val('no');
+
+                        $('#accedibutton').val('facebook');
+                        $('#accedibutton').click();
+                    }
+                });
+            }
+        }
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        function checkLoginState() {
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+        }
+
+    </script>
     <%
         String email=(String)session.getAttribute("email");
         if(email!=null){
@@ -57,7 +115,13 @@
             </div>
         </form>
     </div>
+    <jsp:include page="navbar.jsp"/>
 
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="assets/js/agency.js"></script>
 </body>
 
 </html>

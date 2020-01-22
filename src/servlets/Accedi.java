@@ -42,6 +42,9 @@ public class Accedi extends HttpServlet {
                 session.setAttribute("utente", c);
                 request.getRequestDispatcher("blogmain.jsp").forward(request, response);
             }
+            else{
+                request.setAttribute("message", "Non sei iscritto con la mail di google oppure facebook");
+            }
             //cdb.printAll();
         }
         request.getRequestDispatcher("accedi.jsp").forward(request, response);

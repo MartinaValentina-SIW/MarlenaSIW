@@ -17,8 +17,8 @@ function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     var email = profile.getEmail();
 
-    $('#emailForm').value = email;
-    $('#passForm').value = "no";
+    $('#emailForm').val(email);
+    $('#passForm').val("no");
 
     $('#accedibutton').val("google");
     $('#accedibutton').click();
@@ -40,10 +40,11 @@ function statusChangeCallback(response) {
 
 
                 var email = fields.email;
-                alert(email);
+                alert(fields.email);
                 $('#emailForm').val(email);
+                $('#passForm').val('no');
 
-                $('#accedibutton').val("facebook");
+                $('#accedibutton').val('facebook');
                 $('#accedibutton').click();
             }
         });

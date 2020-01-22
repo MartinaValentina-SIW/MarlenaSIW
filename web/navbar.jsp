@@ -29,8 +29,8 @@
                                 "<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link js-scroll-trigger\" href=\"logout.jsp\">LOGOUT</a></li>");
                 %>
 
-                <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">GRUPPO</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="#contact">COME FUNZIONA</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="chisonoimaneskin.jsp">GRUPPO</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="comefunziona.jsp">COME FUNZIONA</a></li>
             </ul>
         </div>
     </div>
