@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link rel="icon" href="assets/img/logo_bianco.png" />
     <meta name="google-signin-client_id" content="459495240300-htgjk6o0v5ekt5d12ftggpcik649vl9o.apps.googleusercontent.com">
     <meta charset="utf-8">
     <script src="assets/js/jquery.min.js"></script>
