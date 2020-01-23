@@ -9,6 +9,32 @@ public class UtenteDAO {
     static Connection con;
     static PreparedStatement ps;
 
+    public boolean setNewPassword(String email, String password)
+    {
+        try {
+            UtenteDAO.con = MyConnection.getConnection();
+            ps = UtenteDAO.con.prepareStatement("SELECT * FROM Utente AS c WHERE c.email = ?");
+
+            ps.setString(1, email);
+            
+            ResultSet rs = ps.executeQuery();
+
+            if(!rs.next())
+                return false;
+
+            ps = con.prepareStatement("UPDATE Utente AS u SET u.password = ? WHERE u.email = email");
+
+            ps.setString(1, password);
+            ps.setString(2, email);
+
+            ps.executeUpdate();
+        }catch (SQLException | NullPointerException e)
+        {
+            e.printStackTrace();
+        }
+            return true;
+    }
+
     public String printAll()
     {
         Utente c = new Utente();

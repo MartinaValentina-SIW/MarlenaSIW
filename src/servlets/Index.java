@@ -38,7 +38,7 @@ public class Index extends HttpServlet {
                         + "<br>";
             }
             try {
-                javaEmail.createEmailMessage(emailSubject, emailBody, request.getParameter("email"));
+                javaEmail.createEmailContactUs(emailSubject, emailBody);
             } catch (MessagingException e) {
                 e.printStackTrace();
             }

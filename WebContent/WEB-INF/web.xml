@@ -67,4 +67,13 @@
         <url-pattern>/Yourprofile</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ResetPassword</servlet-name>
+        <servlet-class>servlets.ResetPassword</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResetPassword</servlet-name>
+        <url-pattern>/ResetPassword</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -27,14 +27,16 @@ public class JavaEmail {
         emailProperties.put("mail.smtp.starttls.enable", "true");
     }
 
+    public void createEmailContactUs(String emailSubject, String emailBody) throws AddressException, MessagingException
+    {
+        createEmailMessage(emailSubject, emailBody, fromUser);
+    }
+
     public void createEmailMessage(String emailSubject, String emailBody, String emailSender)
             throws AddressException, MessagingException {
         mailSession = Session.getDefaultInstance(emailProperties, null);
         emailMessage = new MimeMessage(mailSession);
-        for (int i = 0; i < toEmails.length; i++) {
-            emailMessage.addRecipient(Message.RecipientType.TO,
-                    new InternetAddress(toEmails[i]));
-        }
+        emailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(emailSender));
         emailMessage.setSubject(emailSubject);
         emailMessage.setContent(emailBody, "text/html");// for a html email
         // emailMessage.setText(emailBody);// for a text email
