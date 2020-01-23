@@ -1,4 +1,7 @@
-package dbmanagers;
+package dbmanagers.dao;
+
+import dbmanagers.MyConnection;
+import dbmanagers.entities.Premio;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

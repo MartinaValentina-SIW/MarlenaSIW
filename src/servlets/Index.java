@@ -1,6 +1,6 @@
 package servlets;
 
-import dbmanagers.JavaEmail;
+import services.JavaEmail;
 
 
 import javax.mail.MessagingException;

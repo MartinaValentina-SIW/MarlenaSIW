@@ -1,6 +1,6 @@
 package servlets;
 
-import dbmanagers.UtenteDAO;
+import dbmanagers.dao.UtenteDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

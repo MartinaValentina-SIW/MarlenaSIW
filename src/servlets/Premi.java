@@ -1,10 +1,9 @@
 package servlets;
 
-import dbmanagers.PremioDAO;
-import dbmanagers.PremioOttenutoDAO;
-import dbmanagers.Utente;
+import dbmanagers.dao.PremioDAO;
+import dbmanagers.dao.PremioOttenutoDAO;
+import dbmanagers.entities.Utente;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.regex.Pattern;
 
 @WebServlet(name = "Premi")
 public class Premi extends HttpServlet {

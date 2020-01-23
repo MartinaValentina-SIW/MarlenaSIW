@@ -1,9 +1,9 @@
 package servlets;
 
-import dbmanagers.ArticoloDAO;
-import dbmanagers.CommentoDAO;
-import dbmanagers.MiPiaceDAO;
-import dbmanagers.Utente;
+import dbmanagers.dao.ArticoloDAO;
+import dbmanagers.dao.CommentoDAO;
+import dbmanagers.dao.MiPiaceDAO;
+import dbmanagers.entities.Utente;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

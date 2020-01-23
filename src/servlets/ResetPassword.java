@@ -1,7 +1,7 @@
 package servlets;
 
-import dbmanagers.JavaEmail;
-import dbmanagers.UtenteDAO;
+import services.JavaEmail;
+import dbmanagers.dao.UtenteDAO;
 
 import javax.mail.MessagingException;
 import javax.servlet.ServletException;
@@ -33,7 +33,10 @@ public class ResetPassword extends HttpServlet {
                         request.setAttribute("message", "Non sei iscritto con questa mail");
                     }
                     else
+                        {
                         javaEmail.createEmailMessage(emailSubject,emailBody,email);
+                        javaEmail.sendEmail();
+                        }
                 } catch (MessagingException e) {
                     request.setAttribute("message", "Problemi ad inviare la mail di recupero");
                     e.printStackTrace();

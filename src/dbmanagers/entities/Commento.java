@@ -1,4 +1,4 @@
-package dbmanagers;
+package dbmanagers.entities;
 
 public class Commento {
     int articolo;

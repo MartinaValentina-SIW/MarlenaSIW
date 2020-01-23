@@ -1,5 +1,4 @@
-<%@ page import="dbmanagers.Utente" %>
-<%@ page import="dbmanagers.UtenteDAO" %>
+<%@ page import="services.MostraInfoProfilo" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 
@@ -31,13 +30,7 @@
                 <div class="rank-label-container">
                     <span class="label label-default rank-label">
                         <%
-                            String email = "0";
-                            if(session.getAttribute("email") instanceof String)
-                            {
-                                email = (String)session.getAttribute("email");
-                            }
-                            int mipiace = new UtenteDAO().getUtente(email).getTotMiPiace();
-                            out.print(mipiace);
+                            MostraInfoProfilo.mostraMiPiace(out, session);
                         %>
                             mi piace</span>
                 </div>
@@ -52,8 +45,7 @@
             <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email" value="<% out.print(session.getAttribute("email")); %>"></div>
             <div class="form-group"><input class="form-control" type="email" name="username" placeholder="Username" value="
                     <%
-                        if(session.getAttribute("utente") instanceof Utente)
-                            out.print(((Utente) session.getAttribute("utente")).getUsername());
+                        MostraInfoProfilo.mostraUsername(out, session);
                     %>
                 "></div>
            <a class="forgot" href="#">Vuoi cambiare password?</a></form>

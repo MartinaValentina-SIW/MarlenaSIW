@@ -1,4 +1,4 @@
-package dbmanagers;
+package services;
 import java.util.Properties;
 
 import javax.mail.Message;

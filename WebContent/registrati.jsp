@@ -16,10 +16,8 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/Elegant-Registration-Form.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="assets/css/Profile-Picture-With-Badge-1.css">
     <link rel="stylesheet" href="assets/css/Profile-Picture-With-Badge.css">
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
-    <link rel="stylesheet" href="assets/css/Social-Icon--hover-effect-1.css">
     <link rel="stylesheet" href="assets/css/Social-Icon--hover-effect.css">
 </head>
 

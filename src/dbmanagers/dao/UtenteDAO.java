@@ -1,4 +1,7 @@
-package dbmanagers;
+package dbmanagers.dao;
+
+import dbmanagers.MyConnection;
+import dbmanagers.entities.Utente;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,13 +19,13 @@ public class UtenteDAO {
             ps = UtenteDAO.con.prepareStatement("SELECT * FROM Utente AS c WHERE c.email = ?");
 
             ps.setString(1, email);
-            
+
             ResultSet rs = ps.executeQuery();
 
             if(!rs.next())
                 return false;
 
-            ps = con.prepareStatement("UPDATE Utente AS u SET u.password = ? WHERE u.email = email");
+            ps = con.prepareStatement("UPDATE Utente AS u SET u.password = ? WHERE u.email = ?");
 
             ps.setString(1, password);
             ps.setString(2, email);
