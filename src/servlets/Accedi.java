@@ -18,32 +18,39 @@ public class Accedi extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String loginButton = request.getParameter("accedibutton");
-
+        System.out.println("WE1");
         if(loginButton.equals("login")){
             Utente c = cdb.getUtente(email,password);
             if(c.getUsername() != null){
                 HttpSession session = request.getSession();
                 session.setAttribute("email",email);
                 session.setAttribute("utente", c);
-                request.getRequestDispatcher("blogmain.jsp").forward(request, response);
+                System.out.println("WE2");
+                response.sendRedirect("blogmain.jsp");
+                return;
             }
             else{
+                System.out.println("WE3");
                 request.setAttribute("message", "Account non trovato oppure password sbagliata");
             }
         }
         else if(loginButton.equals("google") || loginButton.equals("facebook")) {
             Utente c = cdb.getUtente(email);
+            System.out.println("WE4");
             if (c != null && email != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("email", email);
                 session.setAttribute("utente", c);
-                request.getRequestDispatcher("blogmain.jsp").forward(request, response);
+                response.sendRedirect("blogmain.jsp");
+                return;
             }
             else{
+                System.out.println("WE5");
                 request.setAttribute("message", "Non sei iscritto con la mail di google oppure facebook");
             }
             //cdb.printAll();
         }
+        System.out.println("WE6");
         request.getRequestDispatcher("accedi.jsp").forward(request, response);
     }
 

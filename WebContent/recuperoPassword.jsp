@@ -33,7 +33,7 @@
         <form method="post" action="ResetPassword" style="background-color: rgb(237,228,182);">
             <p>Riceverai una nuova password sulla mail</p>
             <div class="form-group"><input id= "emailForm" class="form-control" type="email" name="email" placeholder="Email" required></div>
-            <button type="submit" name="recPass" value="recPass">Manda Mail</button>
+            <button class="btn btn-primary" type="submit" name="recPass" value="recPass">Manda Mail</button>
             ${message}
         </form>
     </div>
