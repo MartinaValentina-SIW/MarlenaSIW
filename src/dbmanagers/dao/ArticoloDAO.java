@@ -44,6 +44,8 @@ public class ArticoloDAO {
 
             ps = ArticoloDAO.con.prepareStatement("INSERT INTO Articolo(autore,titolo,sottotitolo,testo) VALUES (?,?,?,?)");
 
+
+
             ps.setString(1,autore);
             ps.setString(2,titolo);
             ps.setString(3,sottotitolo);

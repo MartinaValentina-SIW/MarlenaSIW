@@ -36,13 +36,12 @@
                             mi piace</span>
                 </div>
             </div>
-        </div> 
-
-                <div class="form-row">
-                    <div class="col"><button class="btn btn-primary" type="button" style="margin: 0px;background-color: rgb(254,209,54);" disabled>Cambia Immagine</button></div>
-                    <div class="col"><button class="btn btn-primary" type="button" style="margin: 0px;background-color: rgb(254,209,54);">Premi</button></div>
-                </div>
+        </div>
+            <div class="form-row">
+                <div class="col"><button class="btn btn-primary" type="button" style="margin: 0px;background-color: rgb(254,209,54);" disabled>Cambia Immagine</button></div>
+                <div class="col"><button class="btn btn-primary" type="button" style="margin: 0px;background-color: rgb(254,209,54);" onclick="location.href = 'premi.jsp'">Premi</button></div>
             </div>
+
             <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email" value="<% out.print(session.getAttribute("email")); %>"></div>
             <div class="form-group"><input class="form-control" type="email" name="username" placeholder="Username" value="
                     <%
