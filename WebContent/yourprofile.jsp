@@ -42,8 +42,8 @@
                 <div class="col"><button class="btn btn-primary" type="button" style="margin: 0px;background-color: rgb(254,209,54);" onclick="location.href = 'premi.jsp'">Premi</button></div>
             </div>
 
-            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email" value="<% out.print(session.getAttribute("email")); %>"></div>
-            <div class="form-group"><input class="form-control" type="email" name="username" placeholder="Username" value="
+            <div class="form-group"><input style="color: black" class="form-control" type="email" name="email" placeholder="Email" value="<% out.print(session.getAttribute("email")); %>"></div>
+            <div class="form-group"><input style="color: black" class="form-control" type="email" name="username" placeholder="Username" value="
                     <%
                         MostraInfoProfilo.mostraUsername(out, session);
                     %>
